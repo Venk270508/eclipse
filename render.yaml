@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: eclipse-social-media
+    runtime: node
+    buildCommand: npm install
+    startCommand: node backend/server.js
+    healthCheckPath: /api/health
+    envVars:
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
